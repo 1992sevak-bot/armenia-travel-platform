@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover Armenia with local guides, private tours, car rentals and places to stay.">
+<title>Open Armenia — Discover Armenia</title>
+<style>
+:root {
+  --green: #173b32;
+  --gold: #e9a45b;
+  --cream: #f7f5ef;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--cream);
+  color: #26332c;
+}
+header {
+  padding: 22px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+}
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--green);
+}
+.logo span { color: var(--gold); }
+nav a {
+  margin-left: 18px;
+  color: var(--green);
+  text-decoration: none;
+  font-size: 14px;
+}
+.hero {
+  padding: 80px 7%;
+  background: linear-gradient(135deg, #173b32, #416d55);
+  color: white;
+}
+.hero h1 {
+  font-size: clamp(42px, 8vw, 76px);
+  max-width: 700px;
+  line-height: 1.05;
+  margin: 15px 0;
+}
+.hero p {
+  max-width: 550px;
+  line-height: 1.8;
+  color: #e0e9e2;
+  font-size: 17px;
+}
+.button {
+  display: inline-block;
+  padding: 15px 23px;
+  margin-top: 15px;
+  background: var(--gold);
+  color: #20352a;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+section { padding: 65px 7%; }
+h2 {
+  color: var(--green);
+  font-size: clamp(28px, 5vw, 42px);
+}
+.intro { color: #68736d; line-height: 1.7; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #e6e4dc;
+}
+.card-top {
+  padding: 28px;
+  background: #e8eee5;
+  font-size: 36px;
+}
+.card-content { padding: 22px; }
+.card h3 { color: var(--green); font-size: 21px; }
+.card p { line-height: 1.7; color: #68736d; }
+.card a { color: var(--green); font-weight: bold; }
+.destinations {
+  background: #eeece4;
+}
+.destination-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.destination {
+  min-height: 180px;
+  border-radius: 14px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background: #d9dfd0;
+  color: var(--green);
+}
+.destination h3 { font-size: 24px; }
+.contact {
+  background: var(--gold);
+  border-radius: 18px;
+  padding: 30px;
+}
+footer {
+  padding: 30px 7%;
+  background: var(--green);
+  color: white;
+  line-height: 1.8;
+}
+@media(max-width:700px) {
+  header { padding: 18px 5%; }
+  nav a { margin-left: 8px; font-size: 12px; }
+  .hero { padding: 60px 6%; }
+  section { padding: 45px 6%; }
+  .cards, .destination-list { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">open<span>armenia.</span></div>
+  <nav>
+    <a href="#experiences">Tours</a>
+    <a href="#destinations">Places</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <p>YOUR NEXT ADVENTURE STARTS HERE</p>
+  <h1>Discover Armenia your way.</h1>
+  <p>
+    Explore ancient monasteries, breathtaking mountains,
+    unforgettable tours and authentic local experiences.
+    Find tours, car rentals and places to stay in one place.
+  </p>
+  <a class="button" href="#experiences">Explore Armenia →</a>
+</div>
+
+<section id="experiences">
+  <h2>Everything for your journey</h2>
+  <p class="intro">
+    Plan your trip with local people who know Armenia best.
+  </p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-top">⛰️</div>
+      <div class="card-content">
+        <h3>Tours & Experiences</h3>
+        <p>Discover Garni, Geghard, Tatev, Noravank and hidden gems with local guides.</p>
+        <a href="#contact">Explore tours →</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-top">🚙</div>
+      <div class="card-content">
+        <h3>Car Rental</h3>
+        <p>Find a comfortable car or a private driver for city trips and mountain adventures.</p>
+        <a href="#contact">Find a car →</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-top">🏡</div>
+      <div class="card-content">
+        <h3>Places to Stay</h3>
+        <p>Discover welcoming guesthouses, apartments and peaceful countryside retreats.</p>
+        <a href="#contact">Find accommodation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="destinations" id="destinations">
+  <h2>Explore Armenia</h2>
+  <p class="intro">A small country with an extraordinary story.</p>
+  <div class="destination-list">
+    <div class="destination">
+      <div>Culture & City Life</div>
+      <h3>Yerevan</h3>
+    </div>
+    <div class="destination">
+      <div>Nature & Fresh Air</div>
+      <h3>Lake Sevan</h3>
+    </div>
+    <div class="destination">
+      <div>Mountains & Heritage</div>
+      <h3>Southern Armenia</h3>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <h2>Let's plan your Armenia trip</h2>
+    <p>Tell us what you want to discover. Your adventure begins here.</p>
+    <a class="button" href="mailto:hello@example.com?subject=My%20Armenia%20trip">
+      Contact us →
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo" style="color:white">open<span>armenia.</span></div>
+  Discover Armenia your way.
+  <br>© 2026 Open Armenia
+</footer>
+
+</body>
+</html>
