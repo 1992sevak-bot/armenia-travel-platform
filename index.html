@@ -2,225 +2,887 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Discover Armenia with local guides, private tours, car rentals and places to stay.">
-<title>Open Armenia — Discover Armenia</title>
-<style>
-:root {
-  --green: #173b32;
-  --gold: #e9a45b;
-  --cream: #f7f5ef;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--cream);
-  color: #26332c;
-}
-header {
-  padding: 22px 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: white;
-}
-.logo {
-  font-size: 25px;
-  font-weight: bold;
-  color: var(--green);
-}
-.logo span { color: var(--gold); }
-nav a {
-  margin-left: 18px;
-  color: var(--green);
-  text-decoration: none;
-  font-size: 14px;
-}
-.hero {
-  padding: 80px 7%;
-  background: linear-gradient(135deg, #173b32, #416d55);
-  color: white;
-}
-.hero h1 {
-  font-size: clamp(42px, 8vw, 76px);
-  max-width: 700px;
-  line-height: 1.05;
-  margin: 15px 0;
-}
-.hero p {
-  max-width: 550px;
-  line-height: 1.8;
-  color: #e0e9e2;
-  font-size: 17px;
-}
-.button {
-  display: inline-block;
-  padding: 15px 23px;
-  margin-top: 15px;
-  background: var(--gold);
-  color: #20352a;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-}
-section { padding: 65px 7%; }
-h2 {
-  color: var(--green);
-  font-size: clamp(28px, 5vw, 42px);
-}
-.intro { color: #68736d; line-height: 1.7; }
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 30px;
-}
-.card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  border: 1px solid #e6e4dc;
-}
-.card-top {
-  padding: 28px;
-  background: #e8eee5;
-  font-size: 36px;
-}
-.card-content { padding: 22px; }
-.card h3 { color: var(--green); font-size: 21px; }
-.card p { line-height: 1.7; color: #68736d; }
-.card a { color: var(--green); font-weight: bold; }
-.destinations {
-  background: #eeece4;
-}
-.destination-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.destination {
-  min-height: 180px;
-  border-radius: 14px;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  background: #d9dfd0;
-  color: var(--green);
-}
-.destination h3 { font-size: 24px; }
-.contact {
-  background: var(--gold);
-  border-radius: 18px;
-  padding: 30px;
-}
-footer {
-  padding: 30px 7%;
-  background: var(--green);
-  color: white;
-  line-height: 1.8;
-}
-@media(max-width:700px) {
-  header { padding: 18px 5%; }
-  nav a { margin-left: 8px; font-size: 12px; }
-  .hero { padding: 60px 6%; }
-  section { padding: 45px 6%; }
-  .cards, .destination-list { grid-template-columns: 1fr; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#142b25">
+  <meta name="description" content="Discover Armenia. Book private tours, rent a car, and find accommodation with Open Armenia.">
+  <title>Open Armenia — Discover Armenia</title>
+
+  <style>
+    :root {
+      --green: #183c30;
+      --green-light: #285747;
+      --gold: #d7ad66;
+      --cream: #f8f6f0;
+      --white: #ffffff;
+      --text: #202a25;
+      --muted: #68736c;
+      --border: #e8e5dc;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--green);
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--green-light);
+    }
+
+    .language-select {
+      max-width: 150px;
+      padding: 9px 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: white;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(12,34,27,.88), rgba(12,34,27,.42)),
+        url("https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=2000&q=85")
+        center 48% / cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 730px;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.12;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 18px;
+      color: #f0f2ee;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 23px;
+      background: var(--gold);
+      color: #20251f;
+      border: none;
+      border-radius: 10px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: #e7c487;
+    }
+
+    .button.secondary {
+      background: white;
+      border: 1px solid var(--border);
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      color: var(--green);
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(24,60,48,.09);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      background: #edf2ed;
+      border-radius: 15px;
+      font-size: 27px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .text-link {
+      color: var(--green-light);
+      font-weight: 800;
+    }
+
+    .destinations {
+      background: #efeee7;
+    }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .destination {
+      min-height: 250px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: end;
+      color: white;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .destination::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 20%, rgba(0,0,0,.78));
+    }
+
+    .destination-content {
+      position: relative;
+      padding: 24px;
+    }
+
+    .destination h3 {
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .destination p {
+      font-size: 14px;
+      color: #f3f3f3;
+    }
+
+    .garni {
+      background-image: url("https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=900&q=80");
+    }
+
+    .sevan {
+      background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80");
+    }
+
+    .mountains {
+      background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80");
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .about-panel {
+      background: var(--green);
+      color: white;
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+
+    .about-panel h2 {
+      font-size: 32px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .about-panel p {
+      color: #e1e9e3;
+    }
+
+    .about-copy h2 {
+      font-size: 32px;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .contact {
+      background: var(--green);
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin-bottom: 14px;
+    }
+
+    .contact p {
+      color: #e1e9e3;
+      max-width: 620px;
+      margin: 0 auto 25px;
+    }
+
+    footer {
+      background: #10271f;
+      color: #e1e9e3;
+      padding: 25px 0;
+      font-size: 14px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    [dir="rtl"] body {
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    [dir="rtl"] .hero {
+      background-image:
+        linear-gradient(270deg, rgba(12,34,27,.88), rgba(12,34,27,.42)),
+        url("https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=2000&q=85");
+    }
+
+    @media (max-width: 800px) {
+      .navbar {
+        padding: 14px 0;
+        flex-wrap: wrap;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .services,
+      .destination-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .services,
+      .destination-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 470px;
+      }
+
+      .hero-content {
+        padding: 65px 0;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .service-card {
+        padding: 24px;
+      }
+
+      .language-select {
+        max-width: 135px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="#home">Open <span>Armenia</span></a>
 
-<header>
-  <div class="logo">open<span>armenia.</span></div>
-  <nav>
-    <a href="#experiences">Tours</a>
-    <a href="#destinations">Places</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+      <nav aria-label="Main navigation">
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#services" data-i18n="navServices">Services</a>
+        <a href="#destinations" data-i18n="navDestinations">Destinations</a>
+        <a href="#about" data-i18n="navAbout">About us</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+      </nav>
 
-<div class="hero">
-  <p>YOUR NEXT ADVENTURE STARTS HERE</p>
-  <h1>Discover Armenia your way.</h1>
-  <p>
-    Explore ancient monasteries, breathtaking mountains,
-    unforgettable tours and authentic local experiences.
-    Find tours, car rentals and places to stay in one place.
-  </p>
-  <a class="button" href="#experiences">Explore Armenia →</a>
-</div>
+      <select class="language-select" id="languageSelect"
+              aria-label="Choose language">
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="fr">🇫🇷 Français</option>
+      </select>
+    </div>
+  </header>
 
-<section id="experiences">
-  <h2>Everything for your journey</h2>
-  <p class="intro">
-    Plan your trip with local people who know Armenia best.
-  </p>
-  <div class="cards">
-    <div class="card">
-      <div class="card-top">⛰️</div>
-      <div class="card-content">
-        <h3>Tours & Experiences</h3>
-        <p>Discover Garni, Geghard, Tatev, Noravank and hidden gems with local guides.</p>
-        <a href="#contact">Explore tours →</a>
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow" data-i18n="eyebrow">Your journey begins here</div>
+          <h1 data-i18n="heroTitle">Discover the beauty of Armenia</h1>
+          <p data-i18n="heroText">
+            Explore ancient monasteries, breathtaking mountains, local culture
+            and unforgettable places with Open Armenia.
+          </p>
+          <a class="button" href="#services" data-i18n="heroButton">
+            Explore our services
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <div class="card-top">🚙</div>
-      <div class="card-content">
-        <h3>Car Rental</h3>
-        <p>Find a comfortable car or a private driver for city trips and mountain adventures.</p>
-        <a href="#contact">Find a car →</a>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2 data-i18n="servicesTitle">Everything for your trip</h2>
+          <p data-i18n="servicesSubtitle">
+            Discover Armenia your way. Find the services you need in one place.
+          </p>
+        </div>
+
+        <div class="services">
+          <article class="service-card">
+            <div class="service-icon">🏔️</div>
+            <h3 data-i18n="tourTitle">Private tours</h3>
+            <p data-i18n="tourText">
+              Explore Armenia with private trips, local experiences and
+              memorable journeys.
+            </p>
+            <a class="text-link" href="#contact" data-i18n="learnMore">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🚗</div>
+            <h3 data-i18n="carTitle">Car rental</h3>
+            <p data-i18n="carText">
+              Find a suitable car for city travel, scenic drives and mountain
+              adventures.
+            </p>
+            <a class="text-link" href="#contact" data-i18n="learnMore">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🏡</div>
+            <h3 data-i18n="stayTitle">Accommodation</h3>
+            <p data-i18n="stayText">
+              Discover apartments, guesthouses and comfortable places to stay
+              across Armenia.
+            </p>
+            <a class="text-link" href="#contact" data-i18n="learnMore">Learn more →</a>
+          </article>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <div class="card-top">🏡</div>
-      <div class="card-content">
-        <h3>Places to Stay</h3>
-        <p>Discover welcoming guesthouses, apartments and peaceful countryside retreats.</p>
-        <a href="#contact">Find accommodation →</a>
+    </section>
+
+    <section class="destinations" id="destinations">
+      <div class="container">
+        <div class="section-heading">
+          <h2 data-i18n="destTitle">Places worth discovering</h2>
+          <p data-i18n="destSubtitle">
+            From historic landmarks to peaceful lakes and spectacular mountains.
+          </p>
+        </div>
+
+        <div class="destination-grid">
+          <article class="destination garni">
+            <div class="destination-content">
+              <h3 data-i18n="garniTitle">Garni & Geghard</h3>
+              <p data-i18n="garniText">Ancient heritage and dramatic landscapes</p>
+            </div>
+          </article>
+
+          <article class="destination sevan">
+            <div class="destination-content">
+              <h3 data-i18n="sevanTitle">Lake Sevan</h3>
+              <p data-i18n="sevanText">Fresh mountain air and beautiful views</p>
+            </div>
+          </article>
+
+          <article class="destination mountains">
+            <div class="destination-content">
+              <h3 data-i18n="tatevTitle">Tatev & the south</h3>
+              <p data-i18n="tatevText">Mountain roads, monasteries and adventure</p>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="destinations" id="destinations">
-  <h2>Explore Armenia</h2>
-  <p class="intro">A small country with an extraordinary story.</p>
-  <div class="destination-list">
-    <div class="destination">
-      <div>Culture & City Life</div>
-      <h3>Yerevan</h3>
-    </div>
-    <div class="destination">
-      <div>Nature & Fresh Air</div>
-      <h3>Lake Sevan</h3>
-    </div>
-    <div class="destination">
-      <div>Mountains & Heritage</div>
-      <h3>Southern Armenia</h3>
-    </div>
-  </div>
-</section>
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <div class="eyebrow" data-i18n="aboutEyebrow">Discover more</div>
+          <h2 data-i18n="aboutPanelTitle">Armenia is closer than you think</h2>
+          <p data-i18n="aboutPanelText">
+            Let the journey take you through centuries of history, welcoming
+            communities and remarkable natural beauty.
+          </p>
+        </div>
 
-<section id="contact">
-  <div class="contact">
-    <h2>Let's plan your Armenia trip</h2>
-    <p>Tell us what you want to discover. Your adventure begins here.</p>
-    <a class="button" href="mailto:hello@example.com?subject=My%20Armenia%20trip">
-      Contact us →
-    </a>
-  </div>
-</section>
+        <div class="about-copy">
+          <h2 data-i18n="aboutTitle">About Open Armenia</h2>
+          <p data-i18n="aboutText1">
+            Open Armenia is a travel platform created to help visitors discover
+            and experience Armenia.
+          </p>
+          <p data-i18n="aboutText2">
+            Our goal is to bring travelers together with local tour providers,
+            car rental services and accommodation hosts in one convenient place.
+          </p>
+          <a class="button secondary" href="#contact" data-i18n="contactButton">
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </section>
 
-<footer>
-  <div class="logo" style="color:white">open<span>armenia.</span></div>
-  Discover Armenia your way.
-  <br>© 2026 Open Armenia
-</footer>
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 data-i18n="contactTitle">Plan your Armenian adventure</h2>
+        <p data-i18n="contactText">
+          Have a question or want to offer your services? Get in touch with us.
+        </p>
+        <a class="button" href="mailto:hello@example.com" data-i18n="contactButton">
+          Get in touch
+        </a>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <div class="container footer-content">
+      <div>© <span id="year"></span> Open Armenia</div>
+      <div data-i18n="footerText">Discover Armenia. Experience more.</div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        navHome: "Home",
+        navServices: "Services",
+        navDestinations: "Destinations",
+        navAbout: "About us",
+        navContact: "Contact",
+        eyebrow: "Your journey begins here",
+        heroTitle: "Discover the beauty of Armenia",
+        heroText: "Explore ancient monasteries, breathtaking mountains, local culture and unforgettable places with Open Armenia.",
+        heroButton: "Explore our services",
+        servicesTitle: "Everything for your trip",
+        servicesSubtitle: "Discover Armenia your way. Find the services you need in one place.",
+        tourTitle: "Private tours",
+        tourText: "Explore Armenia with private trips, local experiences and memorable journeys.",
+        carTitle: "Car rental",
+        carText: "Find a suitable car for city travel, scenic drives and mountain adventures.",
+        stayTitle: "Accommodation",
+        stayText: "Discover apartments, guesthouses and comfortable places to stay across Armenia.",
+        learnMore: "Learn more →",
+        destTitle: "Places worth discovering",
+        destSubtitle: "From historic landmarks to peaceful lakes and spectacular mountains.",
+        garniTitle: "Garni & Geghard",
+        garniText: "Ancient heritage and dramatic landscapes",
+        sevanTitle: "Lake Sevan",
+        sevanText: "Fresh mountain air and beautiful views",
+        tatevTitle: "Tatev & the south",
+        tatevText: "Mountain roads, monasteries and adventure",
+        aboutEyebrow: "Discover more",
+        aboutPanelTitle: "Armenia is closer than you think",
+        aboutPanelText: "Let the journey take you through centuries of history, welcoming communities and remarkable natural beauty.",
+        aboutTitle: "About Open Armenia",
+        aboutText1: "Open Armenia is a travel platform created to help visitors discover and experience Armenia.",
+        aboutText2: "Our goal is to bring travelers together with local tour providers, car rental services and accommodation hosts in one convenient place.",
+        contactButton: "Get in touch",
+        contactTitle: "Plan your Armenian adventure",
+        contactText: "Have a question or want to offer your services? Get in touch with us.",
+        footerText: "Discover Armenia. Experience more."
+      },
+
+      ru: {
+        navHome: "Главная",
+        navServices: "Услуги",
+        navDestinations: "Направления",
+        navAbout: "О нас",
+        navContact: "Контакты",
+        eyebrow: "Ваше путешествие начинается здесь",
+        heroTitle: "Откройте для себя красоту Армении",
+        heroText: "Исследуйте древние монастыри, величественные горы, местную культуру и удивительные места вместе с Open Armenia.",
+        heroButton: "Наши услуги",
+        servicesTitle: "Всё для вашего путешествия",
+        servicesSubtitle: "Откройте Армению по-своему. Найдите необходимые услуги в одном месте.",
+        tourTitle: "Индивидуальные туры",
+        tourText: "Исследуйте Армению в индивидуальных поездках, знакомьтесь с местной культурой и получайте незабываемые впечатления.",
+        carTitle: "Аренда автомобилей",
+        carText: "Выберите автомобиль для поездок по городу, живописным дорогам и горным маршрутам.",
+        stayTitle: "Жильё",
+        stayText: "Найдите квартиры, гостевые дома и комфортное жильё в разных уголках Армении.",
+        learnMore: "Подробнее →",
+        destTitle: "Места, которые стоит увидеть",
+        destSubtitle: "От исторических памятников до тихих озёр и величественных гор.",
+        garniTitle: "Гарни и Гегард",
+        garniText: "Древнее наследие и впечатляющие пейзажи",
+        sevanTitle: "Озеро Севан",
+        sevanText: "Чистый горный воздух и прекрасные виды",
+        tatevTitle: "Татев и юг Армении",
+        tatevText: "Горные дороги, монастыри и приключения",
+        aboutEyebrow: "Узнайте больше",
+        aboutPanelTitle: "Армения ближе, чем кажется",
+        aboutPanelText: "Путешествуйте сквозь века истории, знакомьтесь с гостеприимными людьми и наслаждайтесь удивительной природой.",
+        aboutTitle: "Об Open Armenia",
+        aboutText1: "Open Armenia — туристическая платформа, созданная для знакомства путешественников с Арменией.",
+        aboutText2: "Наша цель — объединить туристов, местных организаторов экскурсий, прокат автомобилей и владельцев жилья на одной удобной платформе.",
+        contactButton: "Связаться с нами",
+        contactTitle: "Спланируйте путешествие по Армении",
+        contactText: "Есть вопросы или хотите предлагать свои услуги? Свяжитесь с нами.",
+        footerText: "Откройте Армению. Получите больше впечатлений."
+      },
+
+      ar: {
+        navHome: "الرئيسية",
+        navServices: "الخدمات",
+        navDestinations: "الوجهات",
+        navAbout: "من نحن",
+        navContact: "اتصل بنا",
+        eyebrow: "رحلتك تبدأ من هنا",
+        heroTitle: "اكتشف جمال أرمينيا",
+        heroText: "اكتشف الأديرة القديمة والجبال الخلابة والثقافة المحلية والأماكن التي لا تُنسى مع Open Armenia.",
+        heroButton: "اكتشف خدماتنا",
+        servicesTitle: "كل ما تحتاجه لرحلتك",
+        servicesSubtitle: "اكتشف أرمينيا بطريقتك واعثر على الخدمات التي تحتاجها في مكان واحد.",
+        tourTitle: "جولات خاصة",
+        tourText: "استكشف أرمينيا من خلال الرحلات الخاصة والتجارب المحلية والذكريات المميزة.",
+        carTitle: "تأجير السيارات",
+        carText: "اختر سيارة مناسبة للتنقل داخل المدن والطرق الجميلة والمغامرات الجبلية.",
+        stayTitle: "الإقامة",
+        stayText: "اكتشف الشقق وبيوت الضيافة وأماكن الإقامة المريحة في أنحاء أرمينيا.",
+        learnMore: "اعرف المزيد ←",
+        destTitle: "أماكن تستحق الاكتشاف",
+        destSubtitle: "من المعالم التاريخية إلى البحيرات الهادئة والجبال المذهلة.",
+        garniTitle: "غارني وغيغارد",
+        garniText: "تراث عريق ومناظر طبيعية مميزة",
+        sevanTitle: "بحيرة سيفان",
+        sevanText: "هواء جبلي نقي وإطلالات جميلة",
+        tatevTitle: "تاتيف وجنوب أرمينيا",
+        tatevText: "طرق جبلية وأديرة ومغامرات",
+        aboutEyebrow: "اكتشف المزيد",
+        aboutPanelTitle: "أرمينيا أقرب مما تتخيل",
+        aboutPanelText: "عش رحلة بين قرون من التاريخ والمجتمعات المضيافة والطبيعة الرائعة.",
+        aboutTitle: "عن Open Armenia",
+        aboutText1: "Open Armenia منصة سفر تساعد الزوار على اكتشاف أرمينيا والاستمتاع بتجربتها.",
+        aboutText2: "هدفنا هو جمع المسافرين مع منظمي الجولات المحليين وخدمات تأجير السيارات ومضيفي أماكن الإقامة في منصة واحدة.",
+        contactButton: "تواصل معنا",
+        contactTitle: "خطط لمغامرتك في أرمينيا",
+        contactText: "هل لديك سؤال أو ترغب في تقديم خدماتك؟ تواصل معنا.",
+        footerText: "اكتشف أرمينيا وعش المزيد من التجارب."
+      },
+
+      zh: {
+        navHome: "首页",
+        navServices: "服务",
+        navDestinations: "目的地",
+        navAbout: "关于我们",
+        navContact: "联系我们",
+        eyebrow: "您的旅程从这里开始",
+        heroTitle: "探索亚美尼亚之美",
+        heroText: "与 Open Armenia 一起探索古老的修道院、壮丽的群山、当地文化和令人难忘的景点。",
+        heroButton: "探索我们的服务",
+        servicesTitle: "旅行所需，一站找到",
+        servicesSubtitle: "按照自己的方式探索亚美尼亚，在一个平台上找到所需服务。",
+        tourTitle: "私人旅游",
+        tourText: "通过私人行程、当地体验和难忘的旅程探索亚美尼亚。",
+        carTitle: "汽车租赁",
+        carText: "为城市出行、风景公路和山地探险选择合适的汽车。",
+        stayTitle: "住宿",
+        stayText: "寻找亚美尼亚各地的公寓、民宿和舒适住宿。",
+        learnMore: "了解更多 →",
+        destTitle: "值得探索的地方",
+        destSubtitle: "从历史遗迹到宁静的湖泊和壮丽的群山。",
+        garniTitle: "加尼与格加尔德",
+        garniText: "古老遗产与壮丽风景",
+        sevanTitle: "塞凡湖",
+        sevanText: "清新的山间空气与美丽景色",
+        tatevTitle: "塔特夫与亚美尼亚南部",
+        tatevText: "山路、修道院与探险体验",
+        aboutEyebrow: "探索更多",
+        aboutPanelTitle: "亚美尼亚比您想象的更近",
+        aboutPanelText: "开启旅程，感受悠久的历史、热情友好的当地社区和迷人的自然风光。",
+        aboutTitle: "关于 Open Armenia",
+        aboutText1: "Open Armenia 是一个帮助游客发现和体验亚美尼亚的旅游平台。",
+        aboutText2: "我们的目标是将旅行者、当地旅游服务商、汽车租赁服务和住宿房东汇集到一个便捷的平台。",
+        contactButton: "联系我们",
+        contactTitle: "规划您的亚美尼亚之旅",
+        contactText: "有任何问题，或希望在平台上提供服务？欢迎联系我们。",
+        footerText: "探索亚美尼亚，收获更多体验。"
+      },
+
+      de: {
+        navHome: "Startseite",
+        navServices: "Angebote",
+        navDestinations: "Reiseziele",
+        navAbout: "Über uns",
+        navContact: "Kontakt",
+        eyebrow: "Ihre Reise beginnt hier",
+        heroTitle: "Entdecken Sie die Schönheit Armeniens",
+        heroText: "Entdecken Sie mit Open Armenia alte Klöster, beeindruckende Berge, lokale Kultur und unvergessliche Orte.",
+        heroButton: "Unsere Angebote entdecken",
+        servicesTitle: "Alles für Ihre Reise",
+        servicesSubtitle: "Entdecken Sie Armenien auf Ihre Weise und finden Sie alles Wichtige an einem Ort.",
+        tourTitle: "Private Touren",
+        tourText: "Entdecken Sie Armenien mit individuellen Ausflügen, lokalen Erlebnissen und unvergesslichen Reisen.",
+        carTitle: "Autovermietung",
+        carText: "Finden Sie das passende Auto für Stadtfahrten, Panoramastraßen und Bergabenteuer.",
+        stayTitle: "Unterkünfte",
+        stayText: "Entdecken Sie Apartments, Gästehäuser und komfortable Unterkünfte in ganz Armenien.",
+        learnMore: "Mehr erfahren →",
+        destTitle: "Orte, die es zu entdecken lohnt",
+        destSubtitle: "Von historischen Sehenswürdigkeiten bis zu ruhigen Seen und beeindruckenden Bergen.",
+        garniTitle: "Garni und Geghard",
+        garniText: "Antikes Kulturerbe und eindrucksvolle Landschaften",
+        sevanTitle: "Der Sewansee",
+        sevanText: "Frische Bergluft und wunderschöne Aussichten",
+        tatevTitle: "Tatev und der Süden",
+        tatevText: "Bergstraßen, Klöster und Abenteuer",
+        aboutEyebrow: "Mehr entdecken",
+        aboutPanelTitle: "Armenien ist näher, als Sie denken",
+        aboutPanelText: "Erleben Sie Jahrhunderte Geschichte, gastfreundliche Menschen und außergewöhnliche Naturschönheit.",
+        aboutTitle: "Über Open Armenia",
+        aboutText1: "Open Armenia ist eine Reiseplattform, die Besuchern hilft, Armenien zu entdecken und zu erleben.",
+        aboutText2: "Unser Ziel ist es, Reisende mit lokalen Touranbietern, Autovermietungen und Unterkunftsanbietern auf einer praktischen Plattform zusammenzubringen.",
+        contactButton: "Kontakt aufnehmen",
+        contactTitle: "Planen Sie Ihr Armenien-Abenteuer",
+        contactText: "Haben Sie Fragen oder möchten Sie Ihre Dienstleistungen anbieten? Kontaktieren Sie uns.",
+        footerText: "Armenien entdecken. Mehr erleben."
+      },
+
+      fr: {
+        navHome: "Accueil",
+        navServices: "Services",
+        navDestinations: "Destinations",
+        navAbout: "À propos",
+        navContact: "Contact",
+        eyebrow: "Votre voyage commence ici",
+        heroTitle: "Découvrez la beauté de l’Arménie",
+        heroText: "Explorez les anciens monastères, les montagnes majestueuses, la culture locale et des lieux inoubliables avec Open Armenia.",
+        heroButton: "Découvrir nos services",
+        servicesTitle: "Tout pour votre voyage",
+        servicesSubtitle: "Découvrez l’Arménie à votre manière et trouvez les services dont vous avez besoin au même endroit.",
+        tourTitle: "Circuits privés",
+        tourText: "Explorez l’Arménie grâce à des excursions privées, des expériences locales et des voyages mémorables.",
+        carTitle: "Location de voitures",
+        carText: "Trouvez une voiture adaptée aux déplacements en ville, aux routes panoramiques et aux aventures en montagne.",
+        stayTitle: "Hébergement",
+        stayText: "Découvrez des appartements, des maisons d’hôtes et des hébergements confortables partout en Arménie.",
+        learnMore: "En savoir plus →",
+        destTitle: "Des lieux à découvrir",
+        destSubtitle: "Des sites historiques aux lacs paisibles et aux montagnes spectaculaires.",
+        garniTitle: "Garni et Geghard",
+        garniText: "Patrimoine ancien et paysages remarquables",
+        sevanTitle: "Lac Sevan",
+        sevanText: "Air pur des montagnes et beaux panoramas",
+        tatevTitle: "Tatev et le sud",
+        tatevText: "Routes de montagne, monastères et aventures",
+        aboutEyebrow: "Explorez davantage",
+        aboutPanelTitle: "L’Arménie est plus proche que vous ne le pensez",
+        aboutPanelText: "Partez à la découverte de siècles d’histoire, de communautés accueillantes et d’une nature exceptionnelle.",
+        aboutTitle: "À propos d’Open Armenia",
+        aboutText1: "Open Armenia est une plateforme de voyage conçue pour aider les visiteurs à découvrir l’Arménie et à en profiter.",
+        aboutText2: "Notre objectif est de réunir les voyageurs, les organisateurs de circuits locaux, les services de location de voitures et les hébergeurs sur une plateforme pratique.",
+        contactButton: "Nous contacter",
+        contactTitle: "Préparez votre aventure en Arménie",
+        contactText: "Vous avez une question ou souhaitez proposer vos services ? Contactez-nous.",
+        footerText: "Découvrez l’Arménie. Vivez davantage."
+      }
+    };
+
+    const languageSelect = document.getElementById("languageSelect");
+
+    function setLanguage(language) {
+      const selected = translations[language] ? language : "en";
+      const dictionary = translations[selected];
+      const isArabic = selected === "ar";
+
+      document.documentElement.lang = selected;
+      document.documentElement.dir = isArabic ? "rtl" : "ltr";
+      document.title = selected === "ru"
+        ? "Open Armenia — Откройте Армению"
+        : "Open Armenia — Discover Armenia";
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.getAttribute("data-i18n");
+        if (dictionary[key]) {
+          element.textContent = dictionary[key];
+        }
+      });
+
+      languageSelect.value = selected;
+
+      try {
+        localStorage.setItem("openArmeniaLanguage", selected);
+      } catch (error) {
+        // The site still works if browser storage is unavailable.
+      }
+    }
+
+    function detectLanguage() {
+      try {
+        const saved = localStorage.getItem("openArmeniaLanguage");
+        if (saved && translations[saved]) return saved;
+      } catch (error) {
+        // Continue with browser language detection.
+      }
+
+      const browserLanguage = (navigator.language || "en").toLowerCase();
+
+      if (browserLanguage.startsWith("ru")) return "ru";
+      if (browserLanguage.startsWith("ar")) return "ar";
+      if (browserLanguage.startsWith("zh")) return "zh";
+      if (browserLanguage.startsWith("de")) return "de";
+      if (browserLanguage.startsWith("fr")) return "fr";
+
+      return "en";
+    }
+
+    languageSelect.addEventListener("change", function () {
+      setLanguage(this.value);
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    setLanguage(detectLanguage());
+  </script>
 </body>
 </html>
